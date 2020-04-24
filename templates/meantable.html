@@ -1,0 +1,262 @@
+<Html>
+
+  <head>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://kit.fontawesome.com/06362b1e04.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+   <style>
+    body            { font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+a, h1, h2       { color: #377ba8; }
+h1, h2          { margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+}
+
+.male th {
+    background-color: #add8e6;
+    color: white;
+}
+
+.female th {
+    background-color: #77dd77;
+    color: white;
+}
+
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)	{ background-color:#fff; }
+
+tr:hover            { background-color: #ffff99;}
+
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    
+  }
+
+
+  .myButton {
+    background-color:#768d87;
+    border-radius:28px;
+    border:1px solid #566963;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:19px;
+    padding:12px 42px;
+    text-decoration:none;
+  }
+  .myButton:hover {
+    background-color:#6c7c7c;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
+  
+    </style>
+     <title> Customer RFM tables </title>
+  </head>
+
+  <body>
+    <div class="page-wrapper chiller-theme toggled">
+      <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <div class="sidebar-brand">
+            <a href="#">Analytica</a>
+            <div id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="sidebar-header">
+            <div class="user-pic">
+              <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+            </div>
+            <div class="user-info">
+              <span class="user-name">John
+                <strong>Paul</strong>
+              </span>
+              <span class="user-role">Marketing Manager</span>
+              <span class="user-status">
+                <i class="fa fa-circle"></i>
+                <span>Online</span>
+              </span>
+            </div>
+          </div>
+    
+          <div class="sidebar-menu">
+            <ul>
+              <li class="header-menu">
+                <span>DashBoard</span>
+              </li>
+              <li class="sidebar-dropdown">
+    
+                <form method="POST" action="/intro">
+    
+                  <input type="submit" value="Introduction" class="classname" >
+                </form>
+    
+                </l1>
+              <li class="sidebar-dropdown">
+    
+                <form method="POST" action="/florish">
+    
+                  <input type="submit" value="RFM Analysis" class="classname">
+                </form>
+    
+                </l1>
+                <li class="sidebar-dropdown">
+  
+                  <form method="POST" action="/cusmean">
+      
+                    <input type="submit" value="RMS Segment" class="classname">
+                  </form>
+      
+                  </l1>
+              <li class="sidebar-dropdown">
+    
+                <form method="POST" action="/power">
+    
+                  <input type="submit" value="Prize Overview" class="classname">
+                </form>
+    
+                </l1>
+    
+              <li class="sidebar-dropdown">
+    
+                <form method="POST" action="/digital">
+    
+                  <input type="submit" value="Digital Footprints" class="classname">
+                </form>
+    
+                </l1>
+    
+              <li class="sidebar-dropdown">
+    
+                <form method="POST" action="/jupyter">
+    
+                  <input type="submit" value="Interpreter" class="classname" formtarget=”_blank”>
+                </form>
+    
+                </l1>
+    
+              <li class="header-menu">
+                <span>Extra</span>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-book"></i>
+                  <span>Documentation</span>
+    
+                </a>
+              </li>
+    
+            </ul>
+          </div>
+          <!-- sidebar-menu  -->
+        </div>
+        <!-- sidebar-content  -->
+        <div class="sidebar-footer">
+    
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+    
+          </a>
+          <a href="#">
+            <i class="fa fa-cog"></i>
+    
+            <a href="#">
+              <i class="fa fa-power-off"></i>
+            </a>
+        </div>
+      </nav>
+      <!-- Main area where we will put our PowerBi links   -->
+      <main class="page-content">
+        <div class="container-fluid">
+          <h1>RFM Mean Segment</h1>
+          <hr>
+          <div class="row">
+            <div class="form-group col-md-12">
+             
+
+
+              <div class="center">
+                  <div class=page>
+                    
+                    {% for table in tables %}
+                      <h2>{{titles[loop.index]}}</h2>
+                      {{ table|safe }}
+                    {% endfor %}
+                  </div>
+                  <form method="POST" action="/silver" style="display: inline-block;">
+                    
+                    <input type="submit" value="Silver" class="myButton">
+                    </form>
+                  <form method="POST" action="/gold" style="display: inline-block;">
+                    
+                    <input type="submit" value="Gold " class="myButton">
+                    </form>
+                      <form method="POST" action="/bronze" style="display: inline-block;">
+                      
+                        <input type="submit" value="bronze" class="myButton">
+                        </form>
+                        <!-- <form method="POST" action="/cs" style="display: inline-block;">
+                      
+                          <input type="submit" value="Customer Micr" class="myButton" style="display: inline-block;" method="GET">
+                          </form> -->
+                        <input type="submit" value="Customer Micro" onclick="ajaxGet()" class="myButton" style="display: inline-block;" method="GET">
+                  
+                        <script>
+                          function ajaxGet() {
+                            $.get( "/cs", function( data ) {
+                              document.open();
+                              document.write(data);
+                              document.close();
+                            });
+                          }
+                        </script>
+                  </div>
+                  
+
+
+
+
+
+
+
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+  </body>
+
+
+  </div>
+  </div>
+  
+  </main>
+  <!-- page-content" -->
+  </div>
+  <!-- page-wrapper -->
+  
+  </Html>
